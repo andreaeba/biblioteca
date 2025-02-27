@@ -1,6 +1,8 @@
 package com.egg.biblioteca.servicios;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import com.egg.biblioteca.entidades.Autor;
 import com.egg.biblioteca.entidades.Editorial;
@@ -43,5 +45,11 @@ public class LibroServicio {
         libro.setEditorial(editorial);
 
         libroRepositorio.save(libro);
+    }
+
+    public List<Libro> ListarLibros() {
+        List<Libro> libros = new ArrayList<>();
+        libros = libroRepositorio.findAll();
+        return libros;
     }
 }
