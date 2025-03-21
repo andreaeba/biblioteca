@@ -8,7 +8,7 @@ import java.util.Date;
 public class Libro {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long isbn;
 
     private String titulo;

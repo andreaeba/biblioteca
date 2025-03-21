@@ -1,7 +1,7 @@
 package com.egg.biblioteca.servicios;
 
 import com.egg.biblioteca.entidades.Autor;
-import com.egg.biblioteca.entidades.Editorial;
+import com.egg.biblioteca.excepciones.MyException;
 import com.egg.biblioteca.repositorios.AutorRepositorio;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,8 +18,9 @@ public class AutorServicio {
     private AutorRepositorio autorRepositorio;
 
     @Transactional
-    public void crearAutor(String nombre){
+    public void crearAutor(String nombre) throws MyException {
 
+        validar(nombre);
         Autor autor = new Autor();
 
         autor.setNombre(nombre);
@@ -29,20 +30,31 @@ public class AutorServicio {
 
     }
 
-    public List<Autor> ListarAutores() {
+    public List<Autor> listarAutores() {
         List<Autor> autores = new ArrayList<>();
         autores = autorRepositorio.findAll();
         return autores;
     }
 
     @Transactional
-    public void modificarAutor(String nombre, String id){
+    public void modificarAutor(String nombre, String id) throws MyException{
+        validar(nombre);
         Optional<Autor> respuesta = autorRepositorio.findById(id);
         if (respuesta.isPresent()) {
             Autor autor = respuesta.get();
 
             autor.setNombre(nombre);
             autorRepositorio.save(autor);
+        }
+    }
+
+    public Autor getOne(String id){
+        return autorRepositorio.getOne(id);
+    }
+
+    private void validar(String nombre) throws MyException {
+        if (nombre == null || nombre.isEmpty()  ) {
+            throw new MyException("el nombre no puede ser nulo o estar vacío");
         }
     }
 }
