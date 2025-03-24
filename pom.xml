@@ -81,7 +81,12 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-						</plugin>
+				<version>3.4.3</version>
+				<configuration>
+					<mainClass>com.egg.biblioteca.BibliotecaApplication</mainClass>
+				</configuration>
+
+			</plugin>
 		</plugins>
 	</build>
 
