@@ -10,7 +10,6 @@ public class Usuario {
 
     @Id
     @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
 
     private String nombre;
@@ -21,6 +20,11 @@ public class Usuario {
 
     @Enumerated(EnumType.STRING)
     private Rol rol;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "imagen_id")
+    private Imagen imagen;
+
 
     public Usuario() {
     }
@@ -63,5 +67,13 @@ public class Usuario {
 
     public void setRol(Rol rol) {
         this.rol = rol;
+    }
+
+    public Imagen getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(Imagen imagen) {
+        this.imagen = imagen;
     }
 }

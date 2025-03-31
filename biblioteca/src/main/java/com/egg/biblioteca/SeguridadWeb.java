@@ -1,14 +1,10 @@
 package com.egg.biblioteca;
 
-import com.egg.biblioteca.excepciones.MyException;
 import com.egg.biblioteca.servicios.UsuarioServicio;
-import com.fasterxml.jackson.annotation.JacksonAnnotationsInside;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
-import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
-import org.springframework.security.config.annotation.web.WebSecurityConfigurer;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
@@ -37,7 +33,7 @@ public class SeguridadWeb {
         http
                 .authorizeHttpRequests((authorize) -> authorize
                         .requestMatchers("/admin/**").hasRole("ADMIN")
-                        .requestMatchers("/css/**", "/js/**", "/img/**").permitAll()//Quitar el "/**" ya que sino esto va a permitir que se
+                        .requestMatchers("/static/css/**", "/js/**", "/templates/img/**").permitAll()//Quitar el "/**" ya que sino esto va a permitir que se
                         //pueda ingresar aunque no esté logueado
                         .requestMatchers("/login","/registro", "/registrar").permitAll() // Permitir acceso a login y registro
                         .anyRequest().authenticated() //Requiere autenticacion
