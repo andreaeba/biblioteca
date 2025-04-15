@@ -8,11 +8,11 @@
     <ul>
         <li><strong>Book Management:</strong> Add, edit, and delete books from the library.</li>
         <li><strong>Author & Publisher Management:</strong> Manage authors and publishers' information.</li>
-        ![gif 2 app](https://github.com/user-attachments/assets/386436ee-bbb8-49b0-abaa-56baafdee7a0)
+        <img src="https://github.com/user-attachments/assets/386436ee-bbb8-49b0-abaa-56baafdee7a0"/>
         <li><strong>User Management:</strong> Create and edit users with different roles.</li>
-        ![gif 3 app](https://github.com/user-attachments/assets/b2beee9c-713c-4ec1-946a-eb6bc89a0f2a)
+        <img src="https://github.com/user-attachments/assets/b2beee9c-713c-4ec1-946a-eb6bc89a0f2a"/>
         <li><strong>Authentication & Authorization:</strong> Role-based access control (ADMIN vs USER).</li>
-        ![gif 1 app](https://github.com/user-attachments/assets/7bb47446-d49e-4d98-86c0-e81ef59abdc2)
+        <img src="https://github.com/user-attachments/assets/7bb47446-d49e-4d98-86c0-e81ef59abdc2"/>
         <li><strong>Friendly UI:</strong> Built with <strong>Thymeleaf</strong> for an intuitive experience.</li>
     </ul>
 
