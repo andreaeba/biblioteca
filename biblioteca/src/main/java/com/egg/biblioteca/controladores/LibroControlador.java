@@ -14,6 +14,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -41,7 +42,7 @@ public class LibroControlador {
     }
 
     @PostMapping("/registro")
-    private String registro(@RequestParam(required = false) Long isbn, @RequestParam String titulo, @RequestParam(required = false) int ejemplares, @RequestParam String idAutor, @RequestParam String idEditorial, ModelMap modelo) {
+    private String registro(@RequestParam(required = false) Long isbn, @RequestParam String titulo, @RequestParam(required = false) int ejemplares, @RequestParam UUID idAutor, @RequestParam UUID idEditorial, ModelMap modelo) {
 
         try{
             libroServicio.crearLibro(isbn, titulo, ejemplares, idAutor, idEditorial);
@@ -72,8 +73,10 @@ public class LibroControlador {
     }
 
 
+
+
     @PostMapping("/modificar/{isbn}")
-    public String modificar(@PathVariable Long isbn, String titulo, int ejemplares, String idAutor, String idEditorial, ModelMap modelo) {
+    public String modificar(@PathVariable Long isbn, String titulo, int ejemplares, UUID idAutor, UUID idEditorial, ModelMap modelo) {
 
         try{
             libroServicio.modificarLibro(isbn, titulo, ejemplares, idAutor, idEditorial);
@@ -84,6 +87,7 @@ public class LibroControlador {
         }
         return "libro_modificar.html";
     }
+
 
 
 

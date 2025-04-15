@@ -10,6 +10,10 @@
     font-weight: 700;
 }
 
+.elementos{
+    margin-right: 50px;
+}
+
 .containerImg{
     width: 20%;
 }
@@ -19,18 +23,69 @@
     margin: auto;
 }
 
-.main{
-    background-image: url(../img/FondoZoom.jpg);
+.img_user{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%; /*Esto va a hacer que se vea redonda la imagen*/
+
+}
+
+.header{
+    background-image: url(../img/FondoZoom_2.jpg);
     background-size: cover;
-    height: 400px;
+    height: 550px;
     display: flex;
+    justify-content: end;
+}
+
+.contenedorMain{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
     align-items: center;
+}
+
+.tituloBiblioteca{
+    width: 80%;
+    text-align: center;
+    font-size: 40px;
+    margin-top: 80px;
+    font-weight: 500;
+}
+
+.contenedorLibros{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.imagenContainer{
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.tituloLibros{
+    font-size: 22px;
+    font-weight: 500;
 }
 
 .containerFooter{
     display: flex;
     justify-content: space-around;
     align-items: center;
+    margin-top: auto;
+}
+
+.boton:hover{
+    background-color: #ffcb00;
+}
+.boton:active{
+    box-shadow: none;
 }
 
 .boton{
@@ -38,19 +93,4 @@
     box-shadow: 0px 2px 16px 4px rgba(0,0,0,0.36);
     -webkit-box-shadow: 0px 2px 16px 4px rgba(0,0,0,0.36);
     -moz-box-shadow: 0px 2px 16px 4px rgba(0,0,0,0.36);
-    margin-right: 10px;
-    margin-left: -10px;
-}
-
-.botonCargar{
-    box-shadow: 0px 2px 16px 4px rgba(0,0,0,0.36);
-    -webkit-box-shadow: 0px 2px 16px 4px rgba(0,0,0,0.36);
-    -moz-box-shadow: 0px 2px 16px 4px rgba(0,0,0,0.36);
-}
-
-.boton:active{
-    box-shadow: none;
-}
-.botonCargar:active{
-    box-shadow: none;
 }

@@ -10,66 +10,54 @@
 
 <div class="container-fluid m-5 contenedor">
 
-    <form class="formulario" th:action="@{/libro/registro/__${libro.isbn}__" method="POST">
-
-        <div th:if="${error != null}" class="card text-white bg-danger mb-3 mensajeError" >
-            <div class="card-body">
-                <h5 class="card-title">Error 👎</h5>
-                <p class="card-text" th:text="${error}"></p>
-            </div>
-        </div>
-        <div th:if="${exito != null}" class="card text-white bg-success mb-3 mt-3 mensajeExito" >
-            <div class="card-body">
-                <h5 class="card-title">Exito!</h5>
-                <p class="card-text" th:text="${exito}"></p>
-            </div>
-        </div>
+    <form class="formulario" th:action="@{/libro/modificar/__${libro.isbn}__" method="POST">
+        <input hidden th:value= "${isbn}" name="isbn">
 
         <div class="form-group my-3">
             <label class="mb-2">Modificar Libro</label>
-            <input hidden th:value="${isbn}" name="isbn" >
+            <input th:value="${libro.titulo}" type="text" class="form-control" name="titulo" placeholder="Titulo">
+                    </div>
 
-        </div>
-        <div class="form-group my-3">
-                 <input th:value="${libro.titulo}" type="text" class="form-control" name="titulo">
-        </div>
 
         <div class="form-group my-3">
-            <input th:value="${libro.ejemplares}" type="number" class="form-control" name="ejemplares">
+            <label class="mb-2">Ejemplares</label>
+            <input th:value="${libro.ejemplares}" type="number" class="form-control" name="ejemplares" placeholder="Cantidad de Ejemplares">
         </div>
 
+
         <div class="form-group my-3">
-
-            <select name="${autor.id}">
-
-                <option th:value="${autor.id}" > </option>
-                <option th:each="autor : ${autores}"
-                        th:value="${autor.id}"
-                        th:text="${autor.nombre}"
-                >
-
-
-            </select>
-        </div>
-        <div class="form-group my-3">
-            <select name="${editorial.id">
-                <option>Seleccionar Editorial</option>
-                <option th:each="editorial : ${editoriales}"
-                        th:value="${editorial.id}"
-                        th:text="${editorial.nombre}"
-                >
-
+            <!-- th:selected lo vamos a usar para que nos mantenga la selección de libro y autor que ya tenía -->
+            <select name="idAutor">
+                <option value="">Seleccione un autor</option>
+                <th:block th:each="autor : ${autores}">
+                    <option th:value="${autor.id}" th:selected="${autor.id == autorSeleccionado}">
+                        [[${autor.nombre}]]
+                    </option>
+                </th:block>
             </select>
         </div>
 
-        <button type="submit" class="btn btn-primary mt-3 botones">Guardar</button>
-    </form>
+
+        <div class="form-group my-3">
+            <select name="idEditorial">
+                <option value="">Seleccione una editorial</option>
+                <th:block th:each="editorial : ${editoriales}">
+                    <option th:value="${editorial.id}" th:selected="${editorial.id == editorialSeleccionada}">
+                        [[${editorial.nombre}]]
+                    </option>
+                </th:block>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-3 botones">Actualizar</button>    </form>
+
+    <div th:replace="~{fragments/mensajeEE :: div}"></div>
 
 
     <section class=" text-center container">
         <div class="row mt-3">
             <div class="divVolver">
-                <a th:href="@{/}" class="btn btn-secondary my-2 botonVolver botones">Volver</a>
+                <a th:href="@{/inicio}" class="btn btn-secondary my-2 botonVolver botones">Volver</a>
             </div>
         </div>
     </section>

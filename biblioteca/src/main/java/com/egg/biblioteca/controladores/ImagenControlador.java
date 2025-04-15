@@ -21,7 +21,7 @@ import org.springframework.web.multipart.MultipartFile;
 public class ImagenControlador {
 
     @Autowired
-    UsuarioServicio usuarioServicio;
+    private UsuarioServicio usuarioServicio;
 
     @Autowired
     private ImagenServicio imagenServicio;
@@ -42,10 +42,10 @@ public class ImagenControlador {
 
     // Subir imagen de perfil para un usuario
     @PostMapping("/perfil/{id}")
-    public ResponseEntity<String> actualizarImagenPerfil(@PathVariable String id, @RequestParam("archivo") MultipartFile archivo) {
+    public ResponseEntity<String> actualizarImagenPerfil(@PathVariable UUID id, @RequestParam("archivo") MultipartFile archivo) {
         try {
     // Llamada al servicio para guardar la imagen
-            imagenServicio.actualizar(archivo, UUID.fromString(id));
+            imagenServicio.actualizar(archivo, UUID.fromString(String.valueOf(id)));
             return new ResponseEntity<>("Imagen actualizada exitosamente", HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>("Error al actualizar la imagen", HttpStatus.BAD_REQUEST);

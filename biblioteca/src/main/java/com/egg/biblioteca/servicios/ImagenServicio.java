@@ -41,14 +41,14 @@ public class ImagenServicio {
     }
 
     // Metodo para actualizar una imagen existente
-    public Imagen actualizar(MultipartFile archivo, UUID idImagen) throws MyException{
+    public Imagen actualizar(MultipartFile archivo, UUID id) throws MyException{
         if (archivo != null) {
             try {
 
                 Imagen imagen = new Imagen();
 
-                if (idImagen != null) {
-                    Optional<Imagen> respuesta = imagenRepositorio.findById(idImagen);
+                if (id != null) {
+                    Optional<Imagen> respuesta = imagenRepositorio.findById(id);
 
                     if (respuesta.isPresent()) {
                         imagen = respuesta.get();
