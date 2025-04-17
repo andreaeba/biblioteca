@@ -26,12 +26,12 @@
 
  <h3>⚡ Installation & Setup</h3>
     <h4>🔹 1. Clone the Repository</h4>
-    <pre><code>git clone https://github.com/tu-usuario/library-management.git
-cd library-management</code></pre>
+    <pre><code>git clone https://github.com/andreaeba/biblioteca.git
+cd biblioteca</code></pre>
 
 <h4>🔹 2. Set up the Database</h4>
     <p>Create the database in MySQL:</p>
-    <pre><code>CREATE DATABASE library_management;</code></pre>
+    <pre><code>CREATE DATABASE biblioteca;</code></pre>
     <p>Then, configure the <code>application.properties</code> file with your MySQL credentials.</p>
 
 <h4>🔹 3. Run the Project</h4>
